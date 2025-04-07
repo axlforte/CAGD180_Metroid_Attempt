@@ -5,6 +5,8 @@ using UnityEngine;
 public class shotScript : MonoBehaviour
 {
     public float damage;
+    public int speed;
+    public int dir;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,6 @@ public class shotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += Vector3.right * dir * speed * Time.deltaTime;
     }
 }
