@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Wobbler : MonoBehaviour
 {
+    public int speed;
+    public int dir;
+    public float health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,13 @@ public class Wobbler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<shotScript>())
+        {
+            health -= other.GetComponent<shotScript>().damage;
+        }
     }
 }
