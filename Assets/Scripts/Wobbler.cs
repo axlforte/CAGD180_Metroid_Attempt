@@ -17,7 +17,11 @@ public class Wobbler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += Vector3.right * dir * speed * Time.deltaTime;
+
+        RaycastHit hit;
+
+        //if(Physics.Raycast(Vector3.Right * dir,))
     }
 
     void OnTriggerEnter(Collider other)

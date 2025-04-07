@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int speed;
+    public int slidespeed;
+    public int slideheight
     // Start is called before the first frame update
     void Start()
     {
