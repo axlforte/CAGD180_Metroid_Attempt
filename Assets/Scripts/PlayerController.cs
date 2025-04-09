@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             //transform.position += Vector3.right * speed * Time.deltaTime;
             //make facingLeft true
-            facingLeft = true;
+            facingLeft = false;
         }
 
         //Check if A key is held
@@ -51,8 +51,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             //transform.position += Vector3.left * speed * Time.deltaTime;
             //make facingleft false
-            facingLeft = false;
-}
+            facingLeft = true;
+        }
     }
 
     /// <summary>
