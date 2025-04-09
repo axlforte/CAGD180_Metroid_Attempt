@@ -9,19 +9,16 @@ public class enemy : MonoBehaviour
     public float invulnTime = 0;
     public float invulnTimeDefault = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    // i am using fixedupdate so regular update can still be called by enemies. i could also have an enemyupdate function but that would be odd
+    void FixedUpdate()
     {
-        
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<BlastProjectileScript>())
         {
