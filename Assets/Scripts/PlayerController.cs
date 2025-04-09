@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator BasicHit()
     {
         iAmInvincible = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         iAmInvincible = false;
     }
 }

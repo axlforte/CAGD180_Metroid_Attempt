@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIHandler : MonoBehaviour
 {
@@ -19,11 +20,15 @@ public class UIHandler : MonoBehaviour
     //the images that represent the numbers
     public Image number1, number2, HudBar;
     Sprite BarSprite;
+    float NoteTimer = 180;
+    float NoteTimerMax = 180;
+    public TMP_Text Note;
 
     // Start is called before the first frame update
     void Start()
     {
         BarSprite = HudBar.sprite;
+        ShowMessageOnscreen("Press A and D to move around");
         if (PC == null)
         {
             //this is dogshit code but the prefab is called BrazenBlonde so it should be safe to do
@@ -49,9 +54,40 @@ public class UIHandler : MonoBehaviour
             {
                 HudBar.sprite = null;
             }
+        } else
+        {
+            HudBar.sprite = BarSprite;
         }
 
-        number1.sprite = greenText[hpValA];
-        number2.sprite = greenText[hpValB];
+        if (PC.health / PC.maxHealth > yellowRate)
+        {
+            number1.sprite = greenText[hpValA];
+            number2.sprite = greenText[hpValB];
+        }
+        else if (PC.health / PC.maxHealth > redRate)
+        {
+            number1.sprite = yellowText[hpValA];
+            number2.sprite = yellowText[hpValB];
+        }
+        else
+        {
+            number1.sprite = RedText[hpValA];
+            number2.sprite = RedText[hpValB];
+        }
+
+        if(NoteTimer > 0)
+        {
+            NoteTimer--;
+            if(NoteTimer < 30)
+            {
+                Note.rectTransform.anchoredPosition = new Vector2(NoteTimer * 7 - 135, -33.2f);
+            }
+        } 
+    }
+
+    public void ShowMessageOnscreen(string message)
+    {
+        Note.text = message;
+        NoteTimer = NoteTimerMax;
     }
 }
