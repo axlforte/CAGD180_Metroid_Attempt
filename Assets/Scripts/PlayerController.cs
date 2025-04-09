@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
     public bool facingLeft;
 
+    public bool canBall;
+
     public GameObject blastPrefab;
     public float timeBetweenFires;
 
@@ -67,6 +69,14 @@ public class PlayerController : MonoBehaviour
         {
             print("Player Jumped");
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private void Slide()
+    {
+        if(Input.GetKeyDown(KeyCode.S) && canBall == true)
+        {
+
         }
     }
 
@@ -145,5 +155,15 @@ public class PlayerController : MonoBehaviour
         iAmInvincible = true;
         yield return new WaitForSeconds(2);
         iAmInvincible = false;
+    }
+
+    IEnumerator Sliding()
+    {
+        RaycastHit hit;
+
+        speed = 12;
+        transform.localScale = new Vector3(1, 0.5f, 1);
+        yield return new WaitForSeconds(1);
+
     }
 }
