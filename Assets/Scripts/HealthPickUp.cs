@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpPowerUp : MonoBehaviour
+public class HealthPickUp : MonoBehaviour
 {
-
+    public float healthGiven;
 }
