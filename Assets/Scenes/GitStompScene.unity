@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 289682260}
   - component: {fileID: 289682259}
   - component: {fileID: 289682258}
-  - component: {fileID: 289682257}
+  - component: {fileID: 289682262}
   m_Layer: 0
   m_Name: StrawMan
   m_TagString: Untagged
@@ -235,21 +235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &289682257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289682256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fefba0a41fc5cc46a49d321890e8ec7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  dir: 0
-  health: 0
 --- !u!65 &289682258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -336,6 +321,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289682262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289682256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba3e38cdc22a904486745533e106008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  invulnTime: 0
+  invulnTimeDefault: 0
 --- !u!1 &1020106669
 GameObject:
   m_ObjectHideFlags: 0

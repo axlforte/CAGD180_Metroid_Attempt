@@ -6,7 +6,6 @@ public class Wobbler : enemy
 {
     public int speed;
     public int dir;
-    public float health;
     float wobbleTimer = 0;
 
     // Start is called before the first frame update
