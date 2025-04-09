@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
-
     public float jumpForce = 5;
+
+    public float health;
 
     public bool facingLeft;
 
