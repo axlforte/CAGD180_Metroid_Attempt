@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public float health;
     public float maxHealth;
-    private bool iAmInvincible;
+    public bool iAmInvincible;
 
     public bool facingLeft;
 
