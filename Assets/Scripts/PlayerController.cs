@@ -6,6 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
 
+    public float jumpForce = 5;
+
+    public bool facingLeft;
+
+    public GameObject blastPrefab;
+    public float timeBetweenFires;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +22,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Jump();
+        Fire();
     }
 
     void FixedUpdate()
@@ -28,18 +36,76 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        //Check in D or RIght Arrow keys are held
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        //Check if D key is held
+        if (Input.GetKey(KeyCode.D))
         {
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             //transform.position += Vector3.right * speed * Time.deltaTime;
+            //make facingLeft true
+            facingLeft = true;
         }
 
-        //Check in D or RIght Arrow keys are held
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        //Check if A key is held
+        if (Input.GetKey(KeyCode.A))
         {
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             //transform.position += Vector3.left * speed * Time.deltaTime;
+            //make facingleft false
+            facingLeft = false;
+}
+    }
+
+    /// <summary>
+    /// if player presses W and is on ground, player jumps
+    /// </summary>
+    private void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && OnGround())
+        {
+            print("Player Jumped");
+            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    /// <summary>
+    /// checks if player is on ground
+    /// </summary>
+    /// <returns></returns>
+    private bool OnGround()
+    {
+        bool onGround = false;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.2f))
+        {
+            print("Touching Ground");
+            onGround = true;
+        }
+
+        return onGround;
+    }
+
+    private void Fire()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(ShootBaseBullet());
+        }
+    }
+    
+
+    /// <summary>
+    /// Fires a projectile then waits one third of a second so that you can onlt fire two shots per second (I might not have mathed that right)
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ShootBaseBullet()
+    {
+        GameObject projectile = Instantiate(blastPrefab, transform.position, blastPrefab.transform.rotation);
+        if (projectile.GetComponent<BlastProjectileScript>())
+        {
+            projectile.GetComponent<BlastProjectileScript>().facingLeft = facingLeft;
+        }
+        yield return new WaitForSeconds(timeBetweenFires);
     }
 }
