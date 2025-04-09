@@ -131,6 +131,13 @@ public class PlayerController : MonoBehaviour
             health = Mathf.Clamp(health + other.GetComponent<HealthPickUp>().healthGiven, 0, maxHealth);
             Destroy(other.gameObject);
         }
+
+        if (other.GetComponent<MaxHealthBooster>())
+        {
+            maxHealth = maxHealth + other.GetComponent<MaxHealthBooster>().maxHealthGiven;
+            health = Mathf.Clamp(maxHealth, 0, maxHealth);
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator BasicHit()
