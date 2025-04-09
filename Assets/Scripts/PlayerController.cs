@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5;
 
     public float health;
+    public float maxHealth;
     private bool iAmInvincible;
 
     public bool facingLeft;
@@ -113,10 +114,22 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Wobbler>() && iAmInvincible == false)
+        if (other.GetComponent<enemy>() && iAmInvincible == false)
         {
             health -= 15;
             StartCoroutine(BasicHit());
+        }
+
+        if (other.GetComponent<JumpPowerUp>())
+        {
+            jumpForce = jumpForce * 2;
+            Destroy(other.gameObject);
+        }
+
+        if (other.GetComponent<HealthPickUp>())
+        {
+            health = Mathf.Clamp(health + other.GetComponent<HealthPickUp>().healthGiven, 0, maxHealth);
+            Destroy(other.gameObject);
         }
     }
 
