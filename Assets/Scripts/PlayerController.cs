@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 5;
 
     public float health;
+    private bool iAmInvincible;
 
     public bool facingLeft;
 
@@ -108,5 +109,21 @@ public class PlayerController : MonoBehaviour
             projectile.GetComponent<BlastProjectileScript>().facingLeft = facingLeft;
         }
         yield return new WaitForSeconds(timeBetweenFires);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Wobbler>() && iAmInvincible == false)
+        {
+            health -= 15;
+            StartCoroutine(BasicHit());
+        }
+    }
+
+    IEnumerator BasicHit()
+    {
+        iAmInvincible = true;
+        yield return new WaitForSeconds(5);
+        iAmInvincible = false;
     }
 }
