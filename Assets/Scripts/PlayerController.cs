@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         Jump();
         Fire();
+        Slide();
     }
 
     void FixedUpdate()
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.S) && canBall == true)
         {
-
+            StartCoroutine(Sliding());
         }
     }
 
@@ -162,8 +164,16 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         speed = 12;
-        transform.localScale = new Vector3(1, 0.5f, 1);
+        transform.localScale = new Vector3(1.3f, 0.5f, 1);
         yield return new WaitForSeconds(1);
-
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, 1f))
+        {
+           StartCoroutine(Sliding()); 
+        }
+        else 
+        {
+            transform.localScale = new Vector3(1, 1f, 1);
+            speed = 10;
+        }
     }
 }
