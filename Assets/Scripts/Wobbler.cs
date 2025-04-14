@@ -8,12 +8,12 @@ public class Wobbler : enemy
     public int dir;
     float wobbleTimer = 0;
     public LayerMask lm;
-    Renderer renderer;
+    public Renderer rend;
     public Material normal, stunned;
 
     void awake()
     {
-        renderer = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -29,10 +29,10 @@ public class Wobbler : enemy
 
         if (invulnTime % 2 == 1)
         {
-            renderer.material = stunned;
+            rend.material = stunned;
         } else
         {
-            renderer.material = normal;
+            rend.material = normal;
         }
     }
 }
