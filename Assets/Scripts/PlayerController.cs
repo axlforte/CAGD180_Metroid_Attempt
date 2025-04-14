@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject blastPrefab;
     public float timeBetweenFires;
+    public bool hasHeavyBullet;
 
     // Start is called before the first frame update
     void Start()
