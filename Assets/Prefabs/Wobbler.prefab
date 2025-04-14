@@ -123,3 +123,9 @@ MonoBehaviour:
   invulnTimeDefault: 0
   speed: 1
   dir: 1
+  lm:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  rend: {fileID: 0}
+  normal: {fileID: 2100000, guid: ade0a1939f135704fb75ef089725a427, type: 2}
+  stunned: {fileID: 0}

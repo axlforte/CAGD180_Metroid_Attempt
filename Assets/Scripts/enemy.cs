@@ -16,11 +16,12 @@ public class enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        invulnTime = Mathf.Clamp(invulnTime - 1, 0, 99999);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BlastProjectileScript>())
+        if (other.GetComponent<BlastProjectileScript>() && invulnTime <= 0)
         {
             invulnTime = invulnTimeDefault;
             health -= other.GetComponent<BlastProjectileScript>().basedamage;

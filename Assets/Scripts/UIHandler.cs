@@ -28,6 +28,7 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         BarSprite = HudBar.sprite;
+        PC.UHandler = this;
         ShowMessageOnscreen("Press A and D to move around");
         if (PC == null)
         {
@@ -89,5 +90,6 @@ public class UIHandler : MonoBehaviour
     {
         Note.text = message;
         NoteTimer = NoteTimerMax;
+        Note.rectTransform.anchoredPosition = new Vector2(69, -33.2f);
     }
 }
