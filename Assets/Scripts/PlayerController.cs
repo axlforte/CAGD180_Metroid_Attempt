@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float timeBetweenFires;
     public bool hasHeavyBullet;
 
+    public UIHandler UHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -137,6 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpForce = jumpForce * 2;
             Destroy(other.gameObject);
+            UHandler.ShowMessageOnscreen("Obtained the Jump Boots");
         }
 
         if (other.GetComponent<HealthPickUp>())
@@ -150,6 +153,7 @@ public class PlayerController : MonoBehaviour
             maxHealth = maxHealth + other.GetComponent<MaxHealthBooster>().maxHealthGiven;
             health = Mathf.Clamp(maxHealth, 0, maxHealth);
             Destroy(other.gameObject);
+            UHandler.ShowMessageOnscreen("Maximum health increased");
         }
     }
 
