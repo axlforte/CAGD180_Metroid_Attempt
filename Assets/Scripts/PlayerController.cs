@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool canBall;
 
     public GameObject blastPrefab;
+    public GameObject heavyPrefab;
     public float timeBetweenFires;
     public bool hasHeavyBullet;
 
@@ -104,9 +105,13 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && hasHeavyBullet == false)
         {
-            StartCoroutine(ShootBaseBullet());
+            StartCoroutine(ShootLightBullet());
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && hasHeavyBullet == true)
+        {
+            StartCoroutine(ShootHeavyBullet());
         }
     }
     
@@ -115,12 +120,26 @@ public class PlayerController : MonoBehaviour
     /// Fires a projectile then waits one third of a second so that you can onlt fire two shots per second (I might not have mathed that right)
     /// </summary>
     /// <returns></returns>
-    IEnumerator ShootBaseBullet()
+    IEnumerator ShootLightBullet()
     {
         GameObject projectile = Instantiate(blastPrefab, transform.position, blastPrefab.transform.rotation);
         if (projectile.GetComponent<BlastProjectileScript>())
         {
             projectile.GetComponent<BlastProjectileScript>().facingLeft = facingLeft;
+        }
+        yield return new WaitForSeconds(timeBetweenFires);
+    }
+
+    /// <summary>
+    /// Fires a heavy projectile then waits one third of a second so that you can onlt fire two shots per second (I might not have mathed that right)
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ShootHeavyBullet()
+    {
+        GameObject heavyProjectile = Instantiate(heavyPrefab, transform.position, heavyPrefab.transform.rotation);
+        if (heavyProjectile.GetComponent<HeavyBlastProjectileScript>())
+        {
+            heavyProjectile.GetComponent<HeavyBlastProjectileScript>().facingLeft = facingLeft;
         }
         yield return new WaitForSeconds(timeBetweenFires);
     }
