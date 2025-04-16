@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             //transform.position += Vector3.right * speed * Time.deltaTime;
             //make facingLeft true
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             facingLeft = false;
         }
 
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             //transform.position += Vector3.left * speed * Time.deltaTime;
             //make facingleft false
+            transform.rotation = Quaternion.Euler(0, 180, 0);
             facingLeft = true;
         }
     }
