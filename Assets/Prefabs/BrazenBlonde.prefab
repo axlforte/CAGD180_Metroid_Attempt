@@ -424,6 +424,7 @@ MonoBehaviour:
   facingLeft: 0
   canBall: 0
   blastPrefab: {fileID: 8883175491664808323, guid: 04ab1dac617e0624993e224d5c35f986, type: 3}
+  heavyPrefab: {fileID: 7283080048575909789, guid: ae3c30b975c03e642a39c24677e7d8f4, type: 3}
   timeBetweenFires: 0.33333334
   hasHeavyBullet: 0
   UHandler: {fileID: 0}
