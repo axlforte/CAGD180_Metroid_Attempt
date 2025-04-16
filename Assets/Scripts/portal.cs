@@ -14,7 +14,7 @@ public class Portal : MonoBehaviour
         {
             other.transform.position = TPPoint.position;
         }
-        else if(other.GetComponent<PlayerController>().hasHeavyBullet == true && other.GetComponent<PlayerController>().jumpForce == 10)
+        else if(other.GetComponent<PlayerController>().hasHeavyBullet == true && other.GetComponent<PlayerController>().jumpForce == 12)
         {
             other.transform.position = TPPoint.position;
         }
