@@ -8,6 +8,7 @@ public class Wobbler : enemy
     public int dir;
     float wobbleTimer = 0;
     public LayerMask lm;
+    public float beamlength = 1;
     public Renderer rend;
     public Material normal, stunned;
 
@@ -22,7 +23,7 @@ public class Wobbler : enemy
         wobbleTimer += Time.deltaTime;
         transform.position += Vector3.right * dir * speed * Time.deltaTime;
 
-        if (!Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0) * dir, Vector3.down, 1, lm) || Physics.Raycast(transform.position + new Vector3(0.5f,0,0) * dir, Vector3.right * dir, 0.1f, lm))
+        if (!Physics.Raycast(transform.position + new Vector3(0.5f, 0, 0) * dir, Vector3.down, beamlength, lm) || Physics.Raycast(transform.position + new Vector3(0.5f,0,0) * dir, Vector3.right * dir, 0.1f, lm))
         {
             dir *= -1;
         }

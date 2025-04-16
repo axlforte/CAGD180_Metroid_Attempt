@@ -127,6 +127,7 @@ MonoBehaviour:
   lm:
     serializedVersion: 2
     m_Bits: 55
+  beamlength: 1.5
   rend: {fileID: 4609682522285719102}
   normal: {fileID: 2100000, guid: dafafd7bbceb4ca448e7d5090c3dd020, type: 2}
   stunned: {fileID: 2100000, guid: 5677ecc4d2ec95c4dae112c45442367b, type: 2}
