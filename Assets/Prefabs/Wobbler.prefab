@@ -100,7 +100,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -126,6 +126,6 @@ MonoBehaviour:
   lm:
     serializedVersion: 2
     m_Bits: 4294967295
-  rend: {fileID: 0}
+  rend: {fileID: 3575557229646030602}
   normal: {fileID: 2100000, guid: ade0a1939f135704fb75ef089725a427, type: 2}
-  stunned: {fileID: 0}
+  stunned: {fileID: 2100000, guid: ed34a9630e8bcf74f9fd7c871dc4802a, type: 2}
