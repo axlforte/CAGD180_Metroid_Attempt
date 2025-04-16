@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Alexander Lara, 
+ * Alexander Lara, Davis
  * last updated: 4/16/2025
  * Upon collsion with the player,set the player's "canBall" variable to true and display a message on the ui
  */

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Alexander Lara,
+ * Alexander Lara
  * last updated: 4/16/2025
  * Begins flying in the direction the player is facing and destroys self upon colision with anything
  */
