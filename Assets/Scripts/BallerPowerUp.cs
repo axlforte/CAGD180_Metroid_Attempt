@@ -9,6 +9,7 @@ public class BallerPowerUp : MonoBehaviour
         if(other.GetComponent<PlayerController>())
         {
             other.GetComponent<PlayerController>().canBall = true;
+            other.GetComponent<PlayerController>().UHandler.ShowMessageOnscreen("Press down to begin sliding");
             Destroy(gameObject);
         }
     }

@@ -156,6 +156,7 @@ Transform:
   - {fileID: 805680496}
   - {fileID: 2146034318}
   - {fileID: 475787633}
+  - {fileID: 866695409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &32120692
@@ -294,8 +295,9 @@ GameObject:
   - component: {fileID: 866695407}
   - component: {fileID: 866695406}
   - component: {fileID: 866695410}
+  - component: {fileID: 866695411}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Da Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +318,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -380,12 +382,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866695405}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.995945, y: 1.807825, z: -0.18882261}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 19413711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &866695410
 MonoBehaviour:
@@ -407,9 +409,36 @@ MonoBehaviour:
   - {fileID: 805680496}
   - {fileID: 2146034318}
   - {fileID: 475787633}
-  speed: 0.1
+  speed: 0.25
   lerpPosition: 0
   lerpArrayPos: 1
+--- !u!54 &866695411
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866695405}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &909963150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2026,5 @@ SceneRoots:
   - {fileID: 909963153}
   - {fileID: 1445264786}
   - {fileID: 1886019414}
-  - {fileID: 866695409}
   - {fileID: 19413711}
   - {fileID: 32120692}
