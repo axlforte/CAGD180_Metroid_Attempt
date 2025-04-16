@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeavyBlastProjectileScript : MonoBehaviour
+public class HeavyBlastProjectileScript : BlastProjectileScript
 {
     public float speed;
     public bool facingLeft;
