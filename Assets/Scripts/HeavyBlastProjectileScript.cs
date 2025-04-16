@@ -21,4 +21,12 @@ public class HeavyBlastProjectileScript : BlastProjectileScript
             transform.position += speed * Vector3.right * Time.deltaTime;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(!other.GetComponent<PlayerController>())
+        {
+            Destroy(gameObject);
+        }
+    }
 }
