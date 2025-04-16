@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
+/*
+ * Alexander Lara,
+ * last updated: 4/16/2025
+ * Begins flying in the direction the player is facing and destroys self upon colision with anything
+ */
+
 
 public class BlastProjectileScript : MonoBehaviour
 {

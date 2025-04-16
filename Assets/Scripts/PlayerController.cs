@@ -4,6 +4,12 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Alexander Lara,
+ * last updated: 4/16/2025
+ * Handles all code and variable relating to the player
+ */
+
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
