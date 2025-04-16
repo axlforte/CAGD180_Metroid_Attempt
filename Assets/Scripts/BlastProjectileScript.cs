@@ -11,6 +11,11 @@ public class BlastProjectileScript : MonoBehaviour
 
     public float basedamage = 1;
 
+    void Start()
+    {
+        StartCoroutine(KYS());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -22,5 +27,12 @@ public class BlastProjectileScript : MonoBehaviour
         {
             transform.position += speed * Vector3.right * Time.deltaTime;
         }
+    }
+
+    //a very accurate name for the projectile's system of automatically cleaning up after a certain amount of time
+    IEnumerator KYS()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }
