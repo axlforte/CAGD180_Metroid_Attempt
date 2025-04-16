@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        if (health < 0)
+            SceneManager.LoadScene("Game Over");
     }
 
     /// <summary>
