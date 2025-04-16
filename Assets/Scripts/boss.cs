@@ -9,10 +9,13 @@ public class boss : enemy
     public float lerpPosition;
     public float lerpArrayPos;
     float PCount;
+    public Renderer rend;
+    public Material normal, stunned;
 
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<Renderer>();
         PCount = (float)travelPoints.Length;
         //we dont need this to be dynamic unless we wanna go crazy with the boss
     }
@@ -27,6 +30,17 @@ public class boss : enemy
         {
             lerpPosition -= 1f;
             lerpArrayPos++;
+        }
+
+        //do i hate myself enough to get all renderers on the object? no.
+        //this flickers between the invulnerable material and the regular one. nothing major
+        if (invulnTime % 2 == 1)
+        {
+            rend.material = stunned;
+        }
+        else
+        {
+            rend.material = normal;
         }
     }
 }
