@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+ * by Davis
+ * 4/16/25
+ * handles the player hud
+ * */
+
 public class UIHandler : MonoBehaviour
 {
     //the player, duh
