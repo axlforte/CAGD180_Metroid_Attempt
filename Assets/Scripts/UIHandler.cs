@@ -18,7 +18,7 @@ public class UIHandler : MonoBehaviour
     public float yellowRate, redRate;
 
     //the images that represent the numbers
-    public Image number1, number2, HudBar;
+    public Image number1, number2, number3, HudBar;
     Sprite BarSprite;
     float NoteTimer = 180;
     float NoteTimerMax = 180;
@@ -28,23 +28,29 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         BarSprite = HudBar.sprite;
-        PC.UHandler = this;
         ShowMessageOnscreen("Press A and D to move around");
         if (PC == null)
         {
             //this is dogshit code but the prefab is called BrazenBlonde so it should be safe to do
             PC = GameObject.Find("BrazenBlonde").GetComponent<PlayerController>();
         }
+        PC.UHandler = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        int hpValA = (((int)PC.health / 10) - 1) % 10;
-        int hpValB = ((int)PC.health - 1) % 10;
+        int hpValA = (((int)PC.health / 100) - 1) % 10;
+        int hpValB = (((int)PC.health / 10) - 1) % 10;
+        int hpValC = ((int)PC.health - 1) % 10;
 
-        if (PC.health < 10)
+        if (PC.health < 10) { 
             hpValA = 9;
+            hpValB = 9;
+        } else if (PC.health < 100)
+        {
+            hpValA = 9;
+        }
 
         if (PC.iAmInvincible)
         {
@@ -64,16 +70,19 @@ public class UIHandler : MonoBehaviour
         {
             number1.sprite = greenText[hpValA];
             number2.sprite = greenText[hpValB];
+            number3.sprite = greenText[hpValC];
         }
         else if (PC.health / PC.maxHealth > redRate)
         {
             number1.sprite = yellowText[hpValA];
             number2.sprite = yellowText[hpValB];
+            number3.sprite = yellowText[hpValC];
         }
         else
         {
             number1.sprite = RedText[hpValA];
             number2.sprite = RedText[hpValB];
+            number3.sprite = RedText[hpValC];
         }
 
         if(NoteTimer > 0)
