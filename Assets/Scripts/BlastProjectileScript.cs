@@ -14,7 +14,7 @@ public class BlastProjectileScript : MonoBehaviour
 
     void Start()
     {
-       // StartCoroutine(Remove());
+       StartCoroutine(Remove());
     }
 
     // Update is called once per frame
@@ -36,11 +36,11 @@ public class BlastProjectileScript : MonoBehaviour
     }
 
     //a very accurate name for the projectile's system of automatically cleaning up after a certain amount of time
-    /* IEnumerator Remove()
+     IEnumerator Remove()
      {
          yield return new WaitForSeconds(2);
          Destroy(gameObject);
-     } */
+     } 
 
     void OnTriggerEnter(Collider other)
     {
