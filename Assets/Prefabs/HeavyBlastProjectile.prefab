@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1362341769168653713}
   - component: {fileID: 6803265692322003862}
   - component: {fileID: -4233524672927490823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeavyBlastProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
