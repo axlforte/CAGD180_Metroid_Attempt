@@ -120,4 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   facingLeft: 0
+  lm:
+    serializedVersion: 2
+    m_Bits: 55
   basedamage: 1

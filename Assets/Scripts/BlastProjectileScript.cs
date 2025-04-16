@@ -9,6 +9,7 @@ public class BlastProjectileScript : MonoBehaviour
     public float speed;
     public bool facingLeft;
 
+    public LayerMask lm;
     public float basedamage = 1;
 
     void Start()
@@ -26,6 +27,11 @@ public class BlastProjectileScript : MonoBehaviour
         else
         {
             transform.position += speed * Vector3.right * Time.deltaTime;
+        }
+
+        if(Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0), Vector3.right, 1, lm))
+        {
+            Destroy(gameObject);
         }
     }
 
