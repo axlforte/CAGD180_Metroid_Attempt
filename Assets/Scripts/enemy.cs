@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * by Davis
+ * 4/16/25
+ * handles enemy collision and death
+ * */
+
 public class enemy : MonoBehaviour
 {
 

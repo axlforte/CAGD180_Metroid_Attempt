@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * by Davis
+ * 4/16/25
+ * moves boss around in a specific motion and handles invuln flashing
+ * */
+
 public class boss : enemy
 {
     public Transform[] travelPoints;
