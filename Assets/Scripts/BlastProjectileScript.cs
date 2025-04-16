@@ -12,6 +12,7 @@ public class BlastProjectileScript : MonoBehaviour
     public LayerMask lm;
     public float basedamage = 1;
     public float grace = 0.25f;
+    bool destroy = false;
 
     void Start()
     {
@@ -21,6 +22,9 @@ public class BlastProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(destroy)
+            Destroy(gameObject);
+
         if (facingLeft == true)
         {
             transform.position += speed * Vector3.left * Time.deltaTime;
@@ -35,7 +39,7 @@ public class BlastProjectileScript : MonoBehaviour
             grace -= Time.deltaTime;
         }  else if(Physics.Raycast(transform.position + new Vector3(-0.5f, 0, 0), Vector3.right, 1, lm))
         {
-            Destroy(gameObject);
+            destroy = true;
         }
     }
 
