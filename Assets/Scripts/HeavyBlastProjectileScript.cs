@@ -10,10 +10,10 @@ using UnityEngine;
 
 public class HeavyBlastProjectileScript : BlastProjectileScript
 {
-    public float speed;
-    public bool facingLeft;
-
-    public float basedamage = 3;
+    void Start()
+    {
+        basedamage = 3;
+    }
 
     // Update is called once per frame
     void Update()
